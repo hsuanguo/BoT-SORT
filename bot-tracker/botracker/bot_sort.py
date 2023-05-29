@@ -1,14 +1,14 @@
-import cv2
-import matplotlib.pyplot as plt
 import numpy as np
+import importlib
 from collections import deque
 
-from tracker import matching
-from tracker.gmc import GMC
-from tracker.basetrack import BaseTrack, TrackState
-from tracker.kalman_filter import KalmanFilter
+from botracker import matching
+from botracker.gmc import GMC
+from botracker.basetrack import BaseTrack, TrackState
+from botracker.kalman_filter import KalmanFilter
 
-from fast_reid.fast_reid_interfece import FastReIDInterface
+if importlib.util.find_spec('fastreid') is not None:
+    from botracker.fast_reid_interfece import FastReIDInterface
 
 
 class STrack(BaseTrack):
